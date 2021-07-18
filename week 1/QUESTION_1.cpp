@@ -24,9 +24,9 @@ int main()
             compare++;
         }
         if(i==n)
-            cout<<"Not present"<<endl;
+            cout<<"Not present and comparison="<<endl;
         else
-            cout<<"Present "<<compare<<endl;
+            cout<<"Present and comparison="<<compare<<endl;
     }
     return 0;
 }

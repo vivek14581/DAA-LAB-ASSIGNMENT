@@ -2,14 +2,13 @@
 using namespace std;
 int main()
 {
-    int tc,n,mid,low,high,compare,key,i;
+    int tc,n,sp,ep,compare,key,i;
     cin>>tc;
     while(tc--)
     {
         compare=1;
+        sp=2;
         cin>>n;
-        low=0;
-        high=n-1;
         vector<int> arr(n);
 
         for(i=0;i<n;i++)
@@ -17,21 +16,34 @@ int main()
 
         cin>>key;
 
-        while(low<high)
+        if(key>=arr[0]&&key<arr[2])
         {
-            mid=low+(high-low)/2;
-            if(arr[mid]==key)
+            sp=0;
+            ep=2;
+            n=0;
+        }
+
+        for(ep=sp*2;ep<n;ep=ep*2)
+        {
+            if(key>=arr[sp]&&key<arr[ep])
                 break;
-            else if(arr[mid]>key)
-                high=mid-1;
-            else
-                low=mid+1;
+            compare+=2;
+            sp=ep;
+        }
+        if(ep>n)
+            ep=n-1;
+
+        for(i=sp;i<=ep;i++)
+        {
+            if(arr[i]==key)
+                break;
             compare++;
         }
-        if(low>=high)
+        if(i>ep)
             cout<<"Not present and comparison="<<compare<<endl;
         else
             cout<<"Present and comparison="<<compare<<endl;
+
     }
     return 0;
 }
