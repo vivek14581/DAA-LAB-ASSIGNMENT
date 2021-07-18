@@ -1,2 +1,2 @@
 # DAA LAB ASSIGNMENT
- This repo contain DAA assignmVnts
+ This repo contain DAA assignments
